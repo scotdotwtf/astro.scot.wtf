@@ -1,0 +1,24 @@
+---
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head/>
+	</head>
+
+	<body>
+		<Nav></Nav>
+		<slot/>
+		<Footer></Footer>
+		<!-- {% include 'components/nav.njk' %}
+		{{ content | safe }}
+		{% include 'components/footer.njk' %} -->
+		
+		<!-- using 2 templating frameworks at once LOL -->
+		<!--{% include "components/menu.njk" %}-->
+	</body>
+</html>
