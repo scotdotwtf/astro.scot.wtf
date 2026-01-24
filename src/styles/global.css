@@ -23,6 +23,8 @@
 /* Base */
 body {
     font-family: Favorit, sans-serif;
+    padding-top: 44px;
+    padding-bottom: 44px
 }
 
 @layer base {

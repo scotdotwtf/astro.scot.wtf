@@ -1,0 +1,33 @@
+---
+interface Props {
+    long: string;
+    short?: string;
+    href?: string;
+}
+
+const { long, short = long, href = "/placeholder" } = Astro.props;
+---
+
+<a class="at" href={href}>
+    <span class="at-long">{long}</span>
+    <span class="at-short">{short}</span>
+</a>
+
+<style>
+    .at-long {
+        display: inline;
+    }
+
+    .at-short {
+        display: none;
+    }
+
+    @container (max-width: 480px) {
+        .at-long {
+            display: none;
+        }
+        .at-short {
+            display: inline;
+        }
+    }
+</style>
