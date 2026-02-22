@@ -1,4 +1,23 @@
-# Astro Starter Kit: Basics
+# scot.wtf
+now in ASTRO!
+
+## testing
+```
+npm run dev
+```
+
+## building
+```
+npm run build
+```
+
+
+## updating
+```
+npx @astrojs/upgrade
+npx @tailwindcss/upgrade
+```
+
 
 ```sh
 npm create astro@latest -- --template basics
