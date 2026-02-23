@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = CollectionEntry<'project'>['data'];
+
+const { title, description, pubDate, updatedDate } = Astro.props;
+---
+
+<Layout>
+	<h1 class="text-8xl">{title}</h1>
+	<h2 class="text-5xl">{description}</h2>
+    <p class="font-mono text-gray-500">{pubDate.toString().slice(0,10)}</p>
+
+    <br>
+
+    <slot>
+</Layout>

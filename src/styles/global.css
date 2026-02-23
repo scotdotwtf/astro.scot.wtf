@@ -11,18 +11,22 @@
 /* Fonts */
 @font-face {
     font-family: Favorit;
-    src: url('../assets/fonts/ABCFavoritEdu-Regular.woff2');
+    src: url('/fonts/ABCFavoritEdu-Regular.woff2');
 }
 
 @font-face {
     font-family: Favorit Mono;
-    src: url('../assets/fonts/ABCFavoritMonoEdu-Regular.woff2');
+    src: url('/fonts/ABCFavoritMonoEdu-Regular.woff2');
 }
 
+/* Tailwind */
+@theme {
+  --font-sans: 'Favorit', 'system-ui', 'sans-serif';
+  --font-mono: 'Favorit Mono', 'monospaced';
+}
 
 /* Base */
 body {
-    font-family: Favorit, sans-serif;
     padding-top: 44px;
     padding-bottom: 44px
 }
