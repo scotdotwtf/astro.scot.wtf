@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
 
-type Props = CollectionEntry<'project'>['data'];
+type Props = CollectionEntry<'projects'>['data'];
 
 const { title, description, pubDate, updatedDate } = Astro.props;
 ---

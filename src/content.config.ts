@@ -7,4 +7,4 @@ const projects = defineCollection({ /* ... */});
 const photography = defineCollection({ /* ... */});
 const posts = defineCollection({ /* ... */});
 
-export const collections = {projects, photography, posts}
+export const collections = { projects, photography, posts }

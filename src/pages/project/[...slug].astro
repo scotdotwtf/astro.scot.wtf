@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 	}));
 }
 
-type Props = CollectionEntry<'project'>;
+type Props = CollectionEntry<'projects'>;
 
 const project = Astro.props;
 const { Content } = await render(project);
