@@ -7,7 +7,7 @@ content:
     type: file
     path: src/pages/about.astro
     fields:
-      - { name: body, label: Body, type: code, options: { format: html } }
+      - { name: body, label: Body, type: code, options: { input: public/assets, output: /assets, format: html } }
   - name: projects
     label: Projects
     type: collection
@@ -19,6 +19,5 @@ content:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string }
       - { name: body, label: Body, type: rich-text }
-      - { name: pubDatetime, label: Date, type: date }
-      - { name: modDatetime, label: Date, type: date }
+      - { name: pubDate, label: Date, type: date }
       - { name: tags, label: Tags, type: string, list: true }
