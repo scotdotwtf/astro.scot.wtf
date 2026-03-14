@@ -7,7 +7,7 @@ content:
     type: file
     path: src/pages/about.astro
     fields:
-      - { name: body, label: Body, type: code, options: { input: public/assets, output: /assets } }
+      - { name: body, label: Body, type: code, options: { input: public/assets, output: /assets, format: html } }
   - name: projects
     label: Projects
     type: collection
