@@ -1,0 +1,25 @@
+media:
+  input: public
+  output: /
+content:
+  - name: about
+    label: About
+    type: file
+    path: src/pages/about.astro
+    fields:
+      - { name: layout, type: string, hidden: true, default: "../layouts/Layout.astro" }
+      - { name: body, label: Body, type: rich-text, options: { input: public/assets, output: /assets } }
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    view:
+      fields: [ title, description, date ]
+    fields:
+      - { name: cover, label: Title, type: string }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string }
+      - { name: body, label: Body, type: rich-text }
+      - { name: pubDatetime, label: Date, type: date }
+      - { name: modDatetime, label: Date, type: date }
+      - { name: tags, label: Tags, type: string, list: true }
