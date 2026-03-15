@@ -1,0 +1,35 @@
+/* All of this is completely unnecesary and could be done with about 2 of these, 
+but I love how this setup always keeps the page fresh.
+As if resizing shows you another way to read what I put down... lol. */
+
+.Article {
+    padding: 6vw;
+}
+
+@media screen and (min-width: 700px) {
+    .Article {
+        width: 75%;
+        /*max-width: 1000px;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .Article {
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .Article {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .Article {
+        width: 50%;
+        padding: 4vw;
+    }
+}

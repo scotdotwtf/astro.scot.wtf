@@ -2,17 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
 
+import '../styles/Article.css'
+
 type Props = CollectionEntry<'projects'>['data'];
 
 const { title, description, pubDate } = Astro.props;
 ---
 
 <Layout>
-	<h1 class="text-8xl">{title}</h1>
-	<h2 class="text-5xl">{description}</h2>
-    <p class="font-mono text-gray-500">{pubDate.toString().slice(0,10)}</p>
+    <div class="Article">
+        <h1 class="text-8xl">{title}</h1>
+        <h2 class="text-5xl">{description}</h2>
+        <p class="font-mono text-gray-500">{pubDate.toString().slice(0,10)}</p>
 
-    <br>
-
-    <slot>
+        <br>
+        
+        <slot>
+    </div>
 </Layout>
