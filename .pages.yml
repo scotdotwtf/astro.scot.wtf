@@ -9,7 +9,7 @@ content:
     view:
       fields: [ title, description, date ]
     fields:
-      - { name: cover, label: Title, type: string }
+      - { name: cover, label: Cover, type: image }
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string }
       - { name: body, label: Body, type: rich-text }
