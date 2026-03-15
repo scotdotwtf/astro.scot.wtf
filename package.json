@@ -9,11 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/sitemap": "^3.7.1",
     "@js-temporal/polyfill": "^0.5.1",
     "@tailwindcss/vite": "^4.2.0",
-    "astro": "^5.17.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.0.4",
+    "react-dom": "^19.2.4",
     "tailwindcss": "^4.2.0"
   }
 }
