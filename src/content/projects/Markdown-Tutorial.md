@@ -39,7 +39,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ### Output
 
-![blog placeholder](../../assets/cat.webp)
+![](/cat.webp)
 
 ## Blockquotes
 
@@ -141,8 +141,11 @@ we can use 3 backticks \`\`\` in new line and write snippet and close with 3 bac
 #### Output
 
 1.  First item
+    
 2.  Second item
+    
 3.  Third item
+    
 
 ### Unordered List
 
@@ -157,8 +160,11 @@ we can use 3 backticks \`\`\` in new line and write snippet and close with 3 bac
 #### Output
 
 *   List item
+    
 *   Another item
+    
 *   And another item
+    
 
 ### Nested list
 
@@ -177,12 +183,19 @@ we can use 3 backticks \`\`\` in new line and write snippet and close with 3 bac
 #### Output
 
 *   Fruit
+    
     *   Apple
+        
     *   Orange
+        
     *   Banana
+        
 *   Dairy
+    
     *   Milk
+        
     *   Cheese
+        
 
 ## Other Elements — abbr, sub, sup, kbd, mark
 
