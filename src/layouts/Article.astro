@@ -11,12 +11,20 @@ const { title, description, pubDate } = Astro.props;
 
 <Layout>
     <div class="Article">
-        <h1 class="text-8xl">{title}</h1>
+        <h1 class="underline decoration-wavy decoration-(--accent)">{title}</h1>
         <h2 class="text-5xl">{description}</h2>
         <p class="font-mono text-gray-500">{pubDate.toString().slice(0,10)}</p>
 
         <br>
-        
-        <slot>
+
+        <div class="Content">
+            <slot>
+        </div>
+
+        <br>
+
+        <div class="flex">
+            <a href="/">&lt;- SCOT.WTF</a>
+        </div>
     </div>
 </Layout>

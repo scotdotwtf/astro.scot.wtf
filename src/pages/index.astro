@@ -2,19 +2,30 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
+import Project from '../components/Index/Project.astro'
+
 const projects = await getCollection('projects');
 ---
 
-<Layout>	
-	<ul>
+<Layout>
+	<div class="m-3">
+		<ul>
+			{
+				projects.map((project) => (
+					<li>
+						<a href={`/project/${project.id}/`}>
+							{project.data.title}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<!-- todo: make grid for <project> components lol -->
 		{
 			projects.map((project) => (
-				<li>
-					<a href={`/project/${project.id}/`}>
-						{project.data.title}
-					</a>
-				</li>
+				<Project image='cat.webp' title={project.data.title} href=`/project/${project.id}/` />
 			))
 		}
-	</ul>
+	</div>
 </Layout>

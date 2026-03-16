@@ -1,14 +1,19 @@
 ---
-import at from '../components/Nav/at.astro'
+import At from '../components/Nav/At.astro'
 ---
 
 <nav class="nav fixed top-0 left-0 w-full p-2 flex gap-1 z-10">
-    <a href="/about">/about</a>
-    <at long="/photography" short="/photo" href="/placeholders" />
-    <!--<a id="photography" href="/placeholder">/photography</a> -->
-    <a href="https://blog.scot.wtf">/blog</a>
+    <div class="bubble bg-white rounded-full">
+        <At long="/about" shortest="/a" href="/about" />
+        <At long="/photography" short="/photo" shortest="/p" href="/placeholders" />
+        <At long="/blog" shortest="/b" href="https://blog.scot.wtf" />
+    </div>
+
     <div class="grow"></div>
+    
     <a id="socials" class="bubble bg-lime-100 text-black rounded-full" href="#">@</a>
-    <a id="downloadables" class="bubble bg-blue-100 text-(--accent) rounded-full"
-    href="#">downloadables</a>
+    <div class="bubble bg-blue-100 rounded-full">
+        <At long="downloadables" shortest="↓" id="downloadables" class="text-(--accent)"
+        href="#" />
+    </div>
 </nav>

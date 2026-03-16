@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { Temporal } from '@js-temporal/polyfill';
 
+import '../styles/Article.css'
+
 var age = Math.floor(
     (Temporal.Now.plainDateISO().year - 2009) 
     + 
@@ -10,16 +12,21 @@ var age = Math.floor(
 ---
 
 <Layout>
-    <p class="text-mono whitespace-pre-line">
+    <div class="Article">
+        <p class="text-mono whitespace-pre-line">
 ⠀╱|、
 (˚ˎ。7
 |、˜〵
 じしˍ,)ノ
-    </p>
-    <p class="whitespace-pre-line">meow! my name is scot, and i'm {age}.
-        what i like to do is take something from one medium to another.
-        my favorite example is *of course* when i created a physical vinyl 
-        for charli xcx's unreleased "XCX World" project, only using the
-        files i could publicly find avalible online.        
-    </p>
+        </p>
+
+        <br>
+
+        <p class="whitespace-pre-line">meow! my name is scot, and i'm {age}.
+            what i like to do is take something from one medium to another.
+            my favorite example is *of course* when i created a physical vinyl 
+            for charli xcx's unreleased "XCX World" project, only using the
+            files i could find publicly avalible online.        
+        </p>
+    </div>
 </Layout>

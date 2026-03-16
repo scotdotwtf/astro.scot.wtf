@@ -1,0 +1,15 @@
+---
+interface Props {
+    image: string;
+    title: string;
+    href?: string;
+}
+
+const { image, title, href = "/placeholder" } = Astro.props;
+---
+
+<div class="Project flex flex-col mb-5 gap-2">
+    <img src={image} class="rounded-lg aspect-square object-cover">
+
+    <a class="text-center" href={href}>{title}</a>
+</div>

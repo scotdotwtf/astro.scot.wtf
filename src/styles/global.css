@@ -61,6 +61,37 @@ body {
     padding: 0 6px 0 6px;
 }
 
+/* text */
+h1 {
+    font-size: clamp(3rem, calc(1rem + 5vw), 6rem);
+}
+
+@media screen and (min-width: 700px) {
+    h1 {
+        font-size: clamp(4rem, calc(1rem + 5vw), 6rem);
+    }
+}
+
+h2 {
+    font-size: clamp(2rem, calc(1rem + 2vw), 3rem);
+    line-height: 2.5rem;
+}
+
+h3 {
+    font-size: clamp(1rem, calc(1rem + 1vw), 2rem);
+    line-height: 2rem;
+}
+
+h5 {
+    font-size: clamp(0.5rem, calc(0.5rem + 1vw), 1rem);
+    line-height: 1.5rem;
+}
+
+h6 {
+    font-size: clamp(0.5rem, calc(0.5rem + 0.5vw), 1rem);
+    line-height: 1rem;
+}
+
 /* effects */
 a:hover:not(.no-wiggle) {
     animation: tilt-shaking 300ms infinite;
