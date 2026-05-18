@@ -28,14 +28,13 @@
 /* Base */
 body {
     padding-top: 44px;
-    padding-bottom: 44px
+    padding-bottom: 44px;
 }
 
 @layer base {
     *,
     *::before,
     *::after {
-
         box-sizing: border-box;
     }
 
@@ -57,8 +56,29 @@ body {
     }
 }
 
+.nav {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .bubble {
     padding: 0 6px 0 6px;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bubble a,
+.bubble button,
+.bubble span {
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.at {
+    display: inline-flex;
+    align-items: center;
+    transform-origin: center;
 }
 
 /* text */
@@ -93,8 +113,12 @@ h6 {
 }
 
 /* effects */
-a:hover:not(.no-wiggle) {
+a:hover:not(.at):not(.no-wiggle), .bubble:hover:not(.no-wiggle) {
     animation: tilt-shaking 300ms infinite;
+}
+
+.bubble {
+    transform-origin: center;
 }
 
 /* ty https://unused-css.com/blog/css-shake-animation/ */

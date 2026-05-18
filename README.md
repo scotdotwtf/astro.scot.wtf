@@ -1,6 +1,9 @@
 # scot.wtf
 now in ASTRO!
 
+> [!CAUTION]
+> NOTE: AI was used to help me finish this project. I am not a fan of the current use and state of generative AI, but to actually finish the technical little parts of this project, I felt that this was the only way through it. I'm sorry, but please understand why. Concept, look, and design of this website was all my choices.
+
 ## structure
 
 Inside of your Astro project, you'll see the following folders and files:

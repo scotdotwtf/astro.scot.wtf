@@ -1,15 +1,33 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
-    image: string;
+    image?: any;
     title: string;
     href?: string;
 }
 
 const { image, title, href = "/placeholder" } = Astro.props;
+const isMeta = image && typeof image === 'object';
+const imageMeta = isMeta ? image : null;
+const imageSrc = isMeta ? null : image;
 ---
 
-<div class="Project flex flex-col mb-5 gap-2">
-    <img src={image} class="rounded-lg aspect-square object-cover">
+<div class="Project flex flex-col gap-3">
+    <a class="Project-card-link no-wiggle" href={href}>
+      {imageMeta ? (
+        <Image
+          src={imageMeta as any}
+          {...(imageMeta?.width && imageMeta?.height ? { width: imageMeta.width, height: imageMeta.height } : {})}
+          class="rounded-lg aspect-square object-cover"
+          alt={title}
+        />
+      ) : imageSrc ? (
+        <img src={imageSrc} class="rounded-lg aspect-square object-cover" alt={title} />
+      ) : (
+        <div class="rounded-lg aspect-square bg-slate-100"></div>
+      )}
 
-    <a class="text-center" href={href}>{title}</a>
+      <a class="text-center" href="href">{title}</a>
+    </a>
 </div>
