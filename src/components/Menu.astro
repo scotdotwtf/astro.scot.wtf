@@ -104,6 +104,8 @@ function closeMenu(menu, id) {
   if (!menu) return;
   menu.classList.add('-translate-y-full');
   menu.classList.add('pointer-events-none');
+  menu.style.transform = 'translateY(-100%)';
+  menu.style.pointerEvents = 'none';
   menu.setAttribute('aria-hidden', 'true');
   // animate topbar fill back to white, then hide it
   const topbar = ensureTopbarFill();
@@ -126,6 +128,8 @@ function openMenu(menu, id, styles) {
     if (otherId !== id) {
       otherMenu.classList.add('-translate-y-full');
       otherMenu.classList.add('pointer-events-none');
+      otherMenu.style.transform = 'translateY(-100%)';
+      otherMenu.style.pointerEvents = 'none';
       otherMenu.setAttribute('aria-hidden', 'true');
     }
   });
@@ -139,7 +143,9 @@ function openMenu(menu, id, styles) {
     topbar.style.background = styles.bgcolor;
   }
 
-  // slide menu in (no opacity transition)
+  // slide menu in (clear inline transform and pointer-events to apply Tailwind classes)
+  menu.style.transform = '';
+  menu.style.pointerEvents = '';
   menu.classList.remove('-translate-y-full');
   menu.classList.remove('pointer-events-none');
   menu.setAttribute('aria-hidden', 'false');
@@ -154,6 +160,10 @@ function createMenu({ id, title, trigger, items }) {
   template.innerHTML = buildMenuMarkup({ id: menuId, title, bgcolor, textColor, items });
   const menu = template.content.firstElementChild;
   if (!menu) return null;
+
+  // ensure menu is hidden by default with inline styles
+  menu.style.transform = 'translateY(-100%)';
+  menu.style.pointerEvents = 'none';
 
   menu.querySelector('.close')?.addEventListener('click', () => {
     history.replaceState(null, '', location.pathname + location.search);
