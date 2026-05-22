@@ -1,5 +1,5 @@
 ---
-cover: ../../assets/Back - DSCF5242.jpg
+cover: ../../assets/projects/Back - DSCF5242.jpg
 title: XCX World (Draft)
 description: Digital Concept -> Physical Product
 pubDate: 2026-05-22
@@ -21,7 +21,7 @@ So, I say all this because when I find out about her unreleased album XCX World,
 
 The first step to making this was seeing others attempt a such a task, and well, there were problems.
 
-![](../../assets/Scoogle.jpg)
+![](../../assets/projects/Scoogle.jpg)
 
 Everyones take on this concept is beautiful in their own ways, but for my purpose, it just wasn't what I was looking for. What I was seeing was completely incorrect track lists, *interestingly* picked imagery, or just general signs of bootleg quality. At that moment, I knew exactly what I wanted to create: I wanted to see what it would have looked like if this album actually came out.  
   

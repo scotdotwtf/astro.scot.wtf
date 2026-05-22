@@ -1,5 +1,5 @@
 ---
-cover: ../../assets/hollywood.jpeg
+cover: ../../assets/projects/hollywood.jpeg
 title: Really awesome article
 description: MEOWLLL
 pubDate: 2025-07-01

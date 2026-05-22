@@ -63,6 +63,12 @@ body {
         color: var(--accent);
         text-decoration: none;
     }
+
+    .Content img {
+        border-radius: var(--radius-lg);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 .nav {
