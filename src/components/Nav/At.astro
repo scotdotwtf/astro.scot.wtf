@@ -9,10 +9,10 @@ interface Props extends HTMLAttributes<'a'> {
     href?: string
 }
 
-const { long, short = long, shortest = short, speed = 30, href = "/placeholder", id, class: className } = Astro.props;
+const { long, short = long, shortest = short, speed = 30, href = "/placeholder", id, class: className, ...rest } = Astro.props;
 ---
 
-<a class:list={["at", className]} href={href} {...(id && { id })} data-long={long} data-short={short} data-shortest={shortest} data-speed={String(speed)}>
+<a class:list={["at", className]} href={href} {...(id && { id })} {...rest} data-long={long} data-short={short} data-shortest={shortest} data-speed={String(speed)}>
     <span class="at-text" aria-live="polite"></span>
 </a>
 

@@ -11,7 +11,7 @@
       }
 
       .st0, .st2 {
-        stroke: #ffffff;
+        stroke: #002FA7dd;
       }
 
       .st1 {
@@ -23,8 +23,8 @@
       }
     </style>
     <radialGradient id="radial-gradient" cx="290.351" cy="76.92" fx="290.351" fy="76.92" r="4.896" gradientUnits="userSpaceOnUse" fill="#ffffff">
-      <stop offset="0" stop-color="#fff" fill="#ffffff"/>
-      <stop offset="1" stop-color="#ffffff" fill="#ffffff"/>
+      <stop offset="0" stop-color="#002fa700" fill="#ffffff"/>
+      <stop offset="1" stop-color="#002FA7dd" fill="#ffffff"/>
     </radialGradient>
   </defs>
   <path class="st2" d="M290.324.975c2.404,0,15.539,0,18.066,0h54.21v-.02h72.29" fill="#ffffff"/>
