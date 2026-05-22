@@ -54,17 +54,17 @@ function buildMenuMarkup({ id, title, bgcolor, textColor, items }) {
   const itemMarkup = items
     .map((item) => `
       <div class="item flex flex-col p-6">
-        <h1 class="text-4xl -ml-[1px]" style="color: ${textColor};">${item.title}</h1>
+        <h1 class="text-4xl -ml-[1px]" style="color: var(--menu-text-color);">${item.title}</h1>
         <div class="flex flex-row justify-between pl-[1px]">
           <p class="text-gray-500/75">${item.alt}</p>
-          <a class="underline decoration-2 underline-offset-1" href="${item.href}" style="color: ${textColor};">${item.link}</a>
+          <a class="underline decoration-2 underline-offset-1" href="${item.href}" style="color: var(--menu-text-color);">${item.link}</a>
         </div>
       </div>
     `)
     .join('');
 
   return `
-    <div id="${id}" class="menu -translate-y-full fixed inset-x-0 top-0 bottom-0 flex flex-col z-20 rounded-b-4xl p-1 overflow-y-auto overscroll-contain transition-all duration-300 ease-in-out" style="background: ${bgcolor};">
+    <div id="${id}" class="menu -translate-y-full fixed inset-x-0 top-0 bottom-0 flex flex-col z-20 rounded-b-4xl p-3 overflow-y-auto overscroll-contain transition-transform duration-300 ease-in-out" style="background: ${bgcolor}; --menu-text-color: ${textColor};">
       <div class="theme-color h-25 w-full -top-20 z-0 left-0 fixed" style="background: ${bgcolor};"></div>
       <div class="controls flex justify-between">
         <p class="title z-1">${title}</p>
@@ -75,8 +75,44 @@ function buildMenuMarkup({ id, title, bgcolor, textColor, items }) {
   `;
 }
 
+function applyMenuStyles(menu, { bgcolor, textColor }) {
+  if (!menu) return;
+  const themeColorDiv = menu.querySelector('.theme-color');
+  menu.style.background = bgcolor;
+  menu.style.setProperty('--menu-text-color', textColor);
+  if (themeColorDiv) {
+    themeColorDiv.style.background = bgcolor;
+  }
+}
+
+function ensureTopbarFill() {
+  let el = document.getElementById('site-topbar-fill');
+  if (el) return el;
+  el = document.createElement('div');
+  el.id = 'site-topbar-fill';
+  el.className = 'site-topbar-fill fixed left-0 right-0 top-0 pointer-events-none';
+  el.style.height = 'calc(env(safe-area-inset-top, 20px) + 12px)';
+  el.style.zIndex = '30';
+  el.style.background = '#ffffff';
+  el.style.display = 'none'; // hidden by default, shown only when menu is open
+  el.style.transition = 'background-color 300ms ease-in-out'; // smooth color transitions
+  document.body.appendChild(el);
+  return el;
+}
+
 function closeMenu(menu, id) {
-  menu?.classList.add('-translate-y-full');
+  if (!menu) return;
+  menu.classList.add('-translate-y-full');
+  menu.classList.add('pointer-events-none');
+  menu.setAttribute('aria-hidden', 'true');
+  // animate topbar fill back to white, then hide it
+  const topbar = ensureTopbarFill();
+  if (topbar) {
+    topbar.style.background = '#ffffff'; // animates due to transition
+    setTimeout(() => {
+      topbar.style.display = 'none'; // hide after color animation completes
+    }, 300);
+  }
   if (activeMenuId === id) {
     activeMenuId = null;
   }
@@ -85,15 +121,28 @@ function closeMenu(menu, id) {
   }, 265);
 }
 
-function openMenu(menu, id, bgcolor) {
+function openMenu(menu, id, styles) {
   menuElements.forEach((otherMenu, otherId) => {
     if (otherId !== id) {
       otherMenu.classList.add('-translate-y-full');
+      otherMenu.classList.add('pointer-events-none');
+      otherMenu.setAttribute('aria-hidden', 'true');
     }
   });
 
-  getThemeMeta()?.setAttribute('content', bgcolor);
+  applyMenuStyles(menu, styles);
+  getThemeMeta()?.setAttribute('content', styles.bgcolor);
+  // show and color the topbar fill so status bar area matches menu
+  const topbar = ensureTopbarFill();
+  if (topbar) {
+    topbar.style.display = 'block'; // ensure visible so transition can apply
+    topbar.style.background = styles.bgcolor;
+  }
+
+  // slide menu in (no opacity transition)
   menu.classList.remove('-translate-y-full');
+  menu.classList.remove('pointer-events-none');
+  menu.setAttribute('aria-hidden', 'false');
   activeMenuId = id;
 }
 
@@ -110,6 +159,9 @@ function createMenu({ id, title, trigger, items }) {
     history.replaceState(null, '', location.pathname + location.search);
     closeMenu(menu, id);
   });
+
+  applyMenuStyles(menu, { bgcolor, textColor });
+  menu.setAttribute('aria-hidden', 'true');
 
   document.body.append(menu);
   menuElements.set(id, menu);
@@ -135,7 +187,7 @@ function loadMenuData(trigger) {
     .then((items) => {
       const menu = createMenu({ id, title, trigger, items });
       if (location.hash === `#${id}` && menu) {
-        openMenu(menu, id, getButtonStyles(trigger).bgcolor);
+        openMenu(menu, id, getButtonStyles(trigger));
       }
       return menu;
     })
@@ -170,8 +222,7 @@ function bindTrigger(trigger) {
 
     menuPromise.then((menu) => {
       if (!menu) return;
-      const { bgcolor } = getButtonStyles(trigger);
-      openMenu(menu, id, bgcolor);
+      openMenu(menu, id, getButtonStyles(trigger));
     });
   });
 }
@@ -184,8 +235,7 @@ function openHashMenu() {
   const menuPromise = loadMenuData(trigger);
   menuPromise.then((menu) => {
     if (!menu) return;
-    const { bgcolor } = getButtonStyles(trigger);
-    openMenu(menu, hash, bgcolor);
+    openMenu(menu, hash, getButtonStyles(trigger));
   });
 }
 

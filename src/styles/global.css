@@ -23,12 +23,21 @@
 @theme {
   --font-sans: 'Favorit', 'system-ui', 'sans-serif';
   --font-mono: 'Favorit Mono', 'monospaced';
+  
 }
 
 /* Base */
 body {
     padding-top: 44px;
     padding-bottom: 44px;
+    
+    transition: font-size 200ms ease-in-out;
+}
+
+@media screen and (max-width: 398px) {
+  body {
+    font-size: 20px;
+  }
 }
 
 @layer base {
@@ -91,6 +100,7 @@ h1 {
         font-size: clamp(4rem, calc(1rem + 5vw), 6rem);
     }
 }
+
 
 h2 {
     font-size: clamp(2rem, calc(1rem + 2vw), 3rem);

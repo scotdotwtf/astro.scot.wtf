@@ -1,0 +1,36 @@
+---
+import Head from '../components/Head.astro';
+
+interface Props {
+	title?: string,
+    href?: string
+}
+
+const { title, href = "/placeholder" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head/>
+		<meta http-equiv="refresh" content=`1; url=${href}` />
+	</head>
+
+	<body>
+		    <div class="Article">
+				<p class="text-mono whitespace-pre-line">
+∩――――∩
+||     ∧ ﾍ　 ||
+||    (* ´ ｰ`) ZZzz
+|ﾉ^⌒⌒づ`￣  ＼
+(　ノ　　⌒ ヽ ＼
+＼　　||￣￣￣￣￣||
+　 ＼,ﾉ||
+				</p>
+
+				<br>
+
+				<p class="whitespace-pre-line">Redirecting to <a href={href} class="text-(--accent) rounded-full">{title}</a>!</p>
+			</div>
+	</body>
+</html>
