@@ -113,7 +113,7 @@ function closeMenu(menu, id) {
     topbar.style.background = '#ffffff'; // animates due to transition
     setTimeout(() => {
       topbar.style.display = 'none'; // hide after color animation completes
-    }, 300);
+    }, 100);
   }
   if (activeMenuId === id) {
     activeMenuId = null;
@@ -139,8 +139,10 @@ function openMenu(menu, id, styles) {
   // show and color the topbar fill so status bar area matches menu
   const topbar = ensureTopbarFill();
   if (topbar) {
-    topbar.style.display = 'block'; // ensure visible so transition can apply
-    topbar.style.background = styles.bgcolor;
+    setTimeout(() => {
+      topbar.style.display = 'block'; // ensure visible so transition can apply
+      topbar.style.background = styles.bgcolor;
+    }, 265);
   }
 
   // slide menu in (clear inline transform and pointer-events to apply Tailwind classes)
