@@ -15,7 +15,6 @@ content:
     view:
       fields: [ title, description, date ]
     fields:
-      # Use the "media" option key to map this field to your "project-assets" configuration
       - { name: cover, label: Cover, type: image, options: { media: project-assets } }
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string }
