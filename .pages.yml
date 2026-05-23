@@ -1,9 +1,9 @@
 media:
-  - name: assets
+  - name: Media
     input: src/assets
     output: ../../assets/
 
-  - name: project-assets
+  - name: Project Media
     input: src/assets/projects
     output: ../../assets/projects/
 
