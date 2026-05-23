@@ -1,5 +1,5 @@
 media:
-  - name: Media
+  - name: Assets
     input: src/assets
     output: ../../assets
 
