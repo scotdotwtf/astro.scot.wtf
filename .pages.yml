@@ -1,11 +1,11 @@
 media:
   - name: Media
     input: src/assets
-    output: ../../assets/
+    output: ../../assets
 
   - name: Project Media
     input: src/assets/projects
-    output: ../../assets/projects/
+    output: ../../assets/projects
 
 content:
   - name: projects
