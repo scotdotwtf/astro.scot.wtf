@@ -53,6 +53,13 @@ So with all of this said and done, did I achieve my goal? Well that is a subject
 
 This was my first time doing product photography for this, and I think it came out REALLY good! Please enjoy these photos, litterally done on the table of my backyard. Photoshop (content aware fill) and Lightroom are my best friends.  
 
-
 ![](<../../assets/projects/Screenshot 2026-05-23 at 1.06.08 AM.png>)
+
+![](<../../assets/projects/XCX WORLD Back with Vinyl.jpg>)
+
+![](<../../assets/projects/XCX WORLD Back.jpg>)
+
+![](<../../assets/projects/XCX WORLD Front with Vinyl.jpg>)
+
+![](<../../assets/projects/XCX WORLD Front.jpg>)
 
