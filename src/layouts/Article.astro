@@ -1,19 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 import '../styles/Article.css'
 
 type Props = CollectionEntry<'projects'>['data'];
 
-const { title, description, pubDate } = Astro.props;
+const { cover, title, description, pubDate } = Astro.props;
+const isMeta = cover && typeof cover === 'object';
+const imageMeta = isMeta ? cover : null;
+const imageSrc = isMeta ? null : cover;
 ---
 
 <Layout>
     <div class="Article">
-        <h1 class="underline decoration-wavy decoration-(--accent)">{title}</h1>
+        {imageMeta ? (
+            <Image
+                src={imageMeta as any}
+                {...(imageMeta?.width && imageMeta?.height ? { width: imageMeta.width, height: imageMeta.height } : {})}
+                class="rounded-lg"
+                alt={title}
+            />
+        ) : imageSrc ? (
+            <img src={imageSrc} class="rounded-lg" alt={title} />
+        ) : null}
+
+        <!--
+        <div class="h-[60dvh] flex items-center justify-center overflow-hidden">
+            {imageMeta ? (
+                    <Image
+                        src={imageMeta as any}
+                        {...(imageMeta?.width && imageMeta?.height ? { width: imageMeta.width, height: imageMeta.height } : {})}
+                        class="rounded-lg max-h-full w-auto object-contain"
+                        alt={title}
+                    />
+            ) : imageSrc ? (
+                <img src={imageSrc} class="rounded-lg max-h-full w-auto object-contain" alt={title} />
+            ) : null}
+        </div>
+        -->
+
+        <h1 class="underline decoration-wavy decoration-(--accent) safari-wavy-decor">{title}</h1>
         <h2 class="text-5xl">{description}</h2>
-        <p class="font-mono text-gray-500">{pubDate.toString().slice(0,10)}</p>
+        <p class="font-mono text-gray-500 mt-2">{pubDate.toString().slice(0,10)}</p>
 
         <br>
 

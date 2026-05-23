@@ -137,6 +137,14 @@ a:hover:not(.at):not(.no-wiggle), .bubble:hover:not(.no-wiggle) {
     transform-origin: center;
 }
 
+
+_::-webkit-full-page-media, .safari-wavy-decor {
+    text-decoration-style: wavy;
+    text-decoration-thickness: 6px;
+    text-underline-offset: 8px;
+    text-decoration-skip-ink: all;
+}
+
 /* ty https://unused-css.com/blog/css-shake-animation/ */
 @keyframes tilt-shaking {
   0% { transform: rotate(0deg); }
