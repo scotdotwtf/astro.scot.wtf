@@ -3,7 +3,7 @@ media:
     input: src/assets
     output: ../../assets
 
-  - name: Project Media
+  - name: Project-Media
     input: src/assets/projects
     output: ../../assets/projects
 
