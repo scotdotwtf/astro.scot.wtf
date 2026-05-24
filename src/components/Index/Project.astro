@@ -8,9 +8,15 @@ interface Props {
 }
 
 const { image, title, href = "/placeholder" } = Astro.props;
-const isMeta = image && typeof image === 'object';
-const imageMeta = isMeta ? image : null;
-const imageSrc = isMeta ? null : image;
+
+// Handle both single image and array of images
+const isArray = Array.isArray(image);
+const primaryImage = isArray ? image?.[0] : image;
+const allImages = isArray ? image : image ? [image] : [];
+
+const isMeta = primaryImage && typeof primaryImage === 'object';
+const imageMeta = isMeta ? primaryImage : null;
+const imageSrc = isMeta ? null : primaryImage;
 ---
 
 <div class="Project flex flex-col gap-3">

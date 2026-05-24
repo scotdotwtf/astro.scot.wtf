@@ -8,9 +8,14 @@ import '../styles/Article.css'
 type Props = CollectionEntry<'projects'>['data'];
 
 const { cover, title, description, pubDate } = Astro.props;
-const isMeta = cover && typeof cover === 'object';
-const imageMeta = isMeta ? cover : null;
-const imageSrc = isMeta ? null : cover;
+
+// Handle both single image and array of images
+const isArray = Array.isArray(cover);
+const primaryCover = isArray ? cover?.[1] : cover;
+
+const isMeta = primaryCover && typeof primaryCover === 'object';
+const imageMeta = isMeta ? primaryCover : null;
+const imageSrc = isMeta ? null : primaryCover;
 ---
 
 <Layout>

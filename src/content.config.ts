@@ -7,8 +7,9 @@ const projects = defineCollection({
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
-    cover: image().optional(),
+    cover: z.union([image().optional(), z.array(image()).optional()]).optional(),
     pubDate: z.coerce.date(),
+    order: z.number().optional(),
     tags: z.array(z.string()).optional()
   }),
 });
@@ -18,8 +19,9 @@ const photography = defineCollection({
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
-    cover: image().optional(),
+    cover: z.union([image().optional(), z.array(image()).optional()]).optional(),
     pubDate: z.coerce.date(),
+    order: z.number().optional(),
     tags: z.array(z.string()).optional()
   }),
 });
@@ -29,8 +31,9 @@ const posts = defineCollection({
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
-    cover: image().optional(),
+    cover: z.union([image().optional(), z.array(image()).optional()]).optional(),
     pubDate: z.coerce.date(),
+    order: z.number().optional(),
     tags: z.array(z.string()).optional()
   }),
 });

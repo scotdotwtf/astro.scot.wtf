@@ -5,6 +5,19 @@ import Layout from '../layouts/Layout.astro';
 import Project from '../components/Index/Project.astro'
 
 const projects = await getCollection('projects');
+
+// Sort by custom order if specified, otherwise by pubDate (newest first)
+const sortedProjects = projects.sort((a, b) => {
+	// If both have custom order, sort by that
+	if (a.data.order !== undefined && b.data.order !== undefined) {
+		return a.data.order - b.data.order;
+	}
+	// If only one has custom order, it comes first
+	if (a.data.order !== undefined) return -1;
+	if (b.data.order !== undefined) return 1;
+	// Otherwise sort by date (newest first)
+	return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
 ---
 
 <Layout>
@@ -25,7 +38,7 @@ const projects = await getCollection('projects');
 
 		<!-- todo: make grid for <project> components lol -->
 		{
-			projects.map((project) => (
+			sortedProjects.map((project) => (
 				<Project image={project.data.cover} title={project.data.title} href=`/project/${project.id}/` />
 			))
 		}

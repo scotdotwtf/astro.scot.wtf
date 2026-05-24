@@ -1,14 +1,18 @@
 ---
-cover: ../../assets/projects/LQ Back with Vinyl.jpg
+cover:
+  - ../../assets/projects/LQ Back with Vinyl.jpg
+  - ../../assets/projects/LQ Front.jpg
 title: XCX World
 description: Digital Concept -> Physical Product
 pubDate: 2025-01-19
+order: 1
 tags:
   - Music
   - Design
   - Physical
   - Concept
 ---
+
 # Background
 
 When Charli XCX's brat came out, I enjoyed it more than I usually enjoy most music. It was a genre I had so obviously seen my entire life, but never actually listened to. It let me connect closer to my more true self, which I hadn't done well due to having such a big taste in genres that didn't exactly respect my life. 
@@ -29,7 +33,7 @@ To do this, I bought and analyzed a few of her physical vinyls that were either 
 
 ![](../../assets/projects/WTF_DSCF6453.jpg)
 
-Some of the things I noticed from Pop 2's vinyl release was a consistent use of sans-serif typefaces that weren't too special. Think  Helvetica-esque typefaces, no crazy style or look, just clean. I also noticed a overall minimal and simplistic style across the record, that still kept character.   
+The main thing I noticed was a minimalistic style. Not too many things distracting you from her, or the image she's portraying. It was through that analysis that I choose Helvetica as the main font. It stood out as something that fit the clean filtered pop asthetic that this album had.
 
 To follow these cues, I found the [photography from bradley & pablo](https://xcx-world.fandom.com/wiki/Template:XCX_World_Photoshoot) for this album, and layered the text on in the same format that her other physical releases had. Some of the challenges I faced while doing this was just making sure the text was visible while still cleanly laying on top of the design. All of this was going to be printed in some sort of CMYK color method, so having small differences between text and background was interesting, but layering it on top with a very slight darkening brush in photoshop allowed me to get that studio look.
 
@@ -62,4 +66,3 @@ This was my first time doing product photography for this, and I think it came o
 ![](<../../assets/projects/XCX WORLD Front with Vinyl.jpg>)
 
 ![](<../../assets/projects/XCX WORLD Front.jpg>)
-

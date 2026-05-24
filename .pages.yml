@@ -15,9 +15,16 @@ content:
     view:
       fields: [ title, description, date ]
     fields:
-      - { name: cover, label: Cover, type: image, options: { media: project-assets } }
+      - name: cover
+        label: Cover
+        type: list
+        field:
+          label: Image
+          type: image
+          options: { media: project-assets }
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string }
       - { name: body, label: Body, type: rich-text }
       - { name: pubDate, label: Date, type: date }
+      - { name: order, label: Order, type: number }
       - { name: tags, label: Tags, type: string, list: true }
