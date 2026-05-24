@@ -15,7 +15,7 @@ content:
     view:
       fields: [ title, description, date ]
     fields:
-      - { name: cover, label: Cover, type: image, options: { media: project-assets } }
+      - { name: cover, label: Cover, type: image, options: { media: Projects } }
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string }
       - { name: body, label: Body, type: rich-text }
