@@ -1,4 +1,5 @@
 ---
+cover: ../../assets/projects/TAPES-B@0.25x.jpg
 title: Rainbow Bridge
 description: Digital Concept -> Physical Product
 pubDate: 2025-02-07
