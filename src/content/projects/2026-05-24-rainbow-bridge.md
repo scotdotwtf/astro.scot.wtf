@@ -1,5 +1,5 @@
 ---
-cover: ../../assets/projects/TAPES-B@0.25x.jpg
+cover: ../../assets/projects/RB1-SIDE-A LQ.jpg
 title: Rainbow Bridge
 description: Digital Concept -> Physical Product
 pubDate: 2025-02-07
@@ -16,5 +16,10 @@ I'm focus on Rainbow Bridge 1 as that's the more original piece, and then I'll t
 
 For the first album, I started by getting 2 strong references and throwing them in photoshop: Rainbow Bridge 2's physical cassette J-Card, as well as the CD art spread for Rainbow Bridge 1.
 
-(DRAFT)
+Using the CD art, I fit the tracklist, the cover, and the general elements back into the cassette format as the 2nd album officially did. Honestly this wasn't the hardest remake/reformatting. The hardest part was just just finding the right cassettes and price, which all came from duplication.com.
 
+
+
+&nbsp;
+
+&nbsp;
