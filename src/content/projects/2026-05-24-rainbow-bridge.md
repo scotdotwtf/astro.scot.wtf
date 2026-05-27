@@ -20,6 +20,10 @@ Using the CD art, I fit the tracklist, the cover, and the general elements back 
 
 
 
-&nbsp;
+# Reflection
+
+This project was simpler. It was less involved than some of my other works. But it was a great experience seeing how the provided digital imagery could be stitched together to fit another similair format. Like how I used the CD imagery for RB1 to make the cassette version.
+
+
 
 &nbsp;
