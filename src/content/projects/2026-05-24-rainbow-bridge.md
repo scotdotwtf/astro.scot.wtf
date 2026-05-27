@@ -1,5 +1,5 @@
 ---
-cover: ../../assets/projects/RB1-SIDE-A LQ.jpg
+cover: ../../assets/projects/RB1-SIDE-A LQ FLIPPED.jpg
 title: Rainbow Bridge
 description: Digital Concept -> Physical Product
 pubDate: 2025-02-07
