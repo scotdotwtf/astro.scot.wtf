@@ -1,0 +1,91 @@
+<div id="preview" class="preview fixed px-2! bubble no-wiggle rounded-full bg-[#e6a5f5]" aria-hidden="true">
+    <span id="preview-label"></span>
+</div>
+
+<style>
+    .preview{
+        top:0; left:0; pointer-events: none; opacity:0; transition:opacity 160ms ease; will-change: transform, opacity; z-index:9999;
+    }
+    .preview.visible{ opacity:1; }
+    #preview-label {
+        display: inline-block;
+        white-space: nowrap;
+    }
+</style>
+
+<script>
+    import { typeTo } from '../../lib/typeAnimation.js';
+
+    (function(){
+        const OFFSET = 6; // px offset from cursor
+        const preview = document.getElementById('preview');
+        const label = document.getElementById('preview-label');
+        if(!preview || !label) return;
+
+        // create non-null typed locals for inner functions to avoid TS "possibly null" complaints
+        const previewEl = preview;
+        const labelEl = label;
+
+        let targetX = 0, targetY = 0;
+        let rafPending = false;
+        let currentText = '';
+        let cancelAnimation = () => {};
+
+        function applyPos(){
+            previewEl.style.transform = `translate3d(${targetX + OFFSET}px, ${targetY + OFFSET}px, 0)`;
+            rafPending = false;
+        }
+
+        function schedule(){
+            if(!rafPending){ rafPending = true; requestAnimationFrame(applyPos); }
+        }
+
+        function show(text: string){
+            const target = text || '';
+            previewEl.classList.add('visible');
+            if(target !== currentText){
+                cancelAnimation();
+                const current = labelEl.textContent || '';
+                cancelAnimation = typeTo(labelEl, current, target, 45, 30);
+                currentText = target;
+            }
+        }
+        function hide(){ previewEl.classList.remove('visible'); }
+
+        function setupEl(imageEl: HTMLElement){
+            const linkEl = imageEl.closest('.Project-card-link') as HTMLElement | null;
+            const getText = () =>
+                linkEl?.dataset.description || linkEl?.dataset.title || (imageEl instanceof HTMLImageElement ? imageEl.alt : '') || '';
+
+            imageEl.addEventListener('pointerenter', (e)=>{
+                show(getText());
+                targetX = e.clientX; targetY = e.clientY; applyPos();
+            });
+            imageEl.addEventListener('pointermove', (e)=>{
+                targetX = e.clientX; targetY = e.clientY; schedule();
+            });
+            imageEl.addEventListener('pointerleave', ()=>{
+                hide();
+            });
+
+            if(linkEl){
+                // keyboard accessibility remains available on the link
+                linkEl.addEventListener('focus', ()=>{
+                    const rect = linkEl.getBoundingClientRect();
+                    targetX = rect.left + rect.width/2; targetY = rect.top + rect.height/2; applyPos();
+                    show(getText());
+                });
+                linkEl.addEventListener('blur', ()=>{ hide(); });
+            }
+        }
+
+        function init(){
+            const els = document.querySelectorAll('.Project-card-link .Project-image');
+            els.forEach((el)=>setupEl(el as HTMLElement));
+        }
+
+        if(document.readyState === 'loading'){
+            document.addEventListener('DOMContentLoaded', init);
+        } else init();
+    })();
+</script>

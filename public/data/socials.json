@@ -1,0 +1,44 @@
+[
+  {
+    "title": "github",
+    "alt": "github.com/scotdotwtf",
+    "link": "visit",
+    "href": "https://github.com/scotdotwtf"
+  },
+  {
+    "title": "bluesky",
+    "alt": "bsky.app/profile/scot.wtf",
+    "link": "chirp",
+    "href": "https://bsky.app/profile/scot.wtf"
+  },
+  {
+    "title": "bandcamp",
+    "alt": "catseq.bandcamp.com",
+    "link": "listen",
+    "href": "https://catseq.bandcamp.com/"
+  },
+  {
+    "title": "email",
+    "alt": "meow@scot.wtf",
+    "link": "message",
+    "href": "mailto:meow@scot.wtf"
+  },
+  {
+    "title": "remixes",
+    "alt": "youtube.com/@catseq",
+    "link": "watch",
+    "href": "https://youtube.com/@catseq"
+  },
+  {
+    "title": "discord",
+    "alt": "scotdotwtf",
+    "link": "add",
+    "href": "https://discordapp.com/users/443902982094848011"
+  },
+  {
+    "title": "twitter",
+    "alt": "twitter.com/cat_interface",
+    "link": "🖕elon",
+    "href": "https://x.com/cat_interface/"
+  }
+]

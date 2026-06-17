@@ -5,37 +5,35 @@ interface Props extends HTMLAttributes<'a'> {
     long: string,
     short?: string,
     shortest?: string,
-    speed?: number,
     href?: string
 }
 
-const { long, short = long, shortest = short, speed = 30, href = "/placeholder", id, class: className, ...rest } = Astro.props;
+const { long, short = long, shortest = short, href = "/placeholder", id, class: className, ...rest } = Astro.props;
 ---
 
-<a class:list={["at", className]} href={href} {...(id && { id })} {...rest} data-long={long} data-short={short} data-shortest={shortest} data-speed={String(speed)}>
-    <span class="at-text" aria-live="polite"></span>
+<a class:list={["at", className]} href={href} {...(id && { id })} {...rest} data-long={long} data-short={short} data-shortest={shortest}>
+    <span class="at-text" aria-live="polite">{long}</span>
 </a>
 
-<script type="module">
-    if (typeof window === 'undefined') {
-        // no-op on server
-    } else {
-        const anchors = Array.from(document.querySelectorAll('a.at[data-long]'));
+<script>
+    import { typeTo } from '../../lib/typeAnimation.js';
+
+    if (typeof window !== 'undefined') {
+        const anchors = Array.from(document.querySelectorAll<HTMLAnchorElement>('a.at[data-long]'));
         anchors.forEach((el) => {
             if (el.dataset.atInit) return;
             el.dataset.atInit = '1';
 
-            const long = el.dataset.long || '';
-            const short = el.dataset.short || long;
-            const shortest = el.dataset.shortest || short;
-            const baseSpeed = Math.max(8, Number(el.dataset.speed) || 60);
+            const long = el.dataset.long ?? '';
+            const short = el.dataset.short ?? long;
+            const shortest = el.dataset.shortest ?? short;
+            const display = el.querySelector('.at-text');
+            if (!(display instanceof HTMLElement)) return;
+            const displayEl: HTMLElement = display;
 
             const mLarge = window.matchMedia('(min-width:460px)');
             const mSmall = window.matchMedia('(max-width:398px)');
-            const display = el.querySelector('.at-text');
-            if (!display) return;
-
-            let timer = null;
+            let cancelAnimation: () => void = () => {};
 
             function getTarget() {
                 if (mLarge.matches) return long;
@@ -43,84 +41,19 @@ const { long, short = long, shortest = short, speed = 30, href = "/placeholder",
                 return short;
             }
 
-            function animateTo(target) {
-                if (timer) {
-                    clearTimeout(timer);
-                    timer = null;
-                }
-                const start = display.textContent || '';
-                if (start === target) return;
-
-                function commonPrefix(a, b) {
-                    const n = Math.min(a.length, b.length);
-                    let i = 0;
-                    while (i < n && a.charAt(i) === b.charAt(i)) i++;
-                    return i;
-                }
-
-                const common = commonPrefix(start, target);
-
-                // If start is a prefix of target, just type the remainder.
-                if (start.length < target.length && target.startsWith(start)) {
-                    let i = start.length;
-                    function typeStep() {
-                        i++;
-                        display.textContent = target.slice(0, i);
-                        if (i < target.length) timer = setTimeout(typeStep, baseSpeed);
-                        else timer = null;
-                    }
-                    typeStep();
-                    return;
-                }
-
-                // Otherwise: delete down to common prefix, then type the rest of target.
-                let i = start.length;
-                function deleteStep() {
-                    i--;
-                    display.textContent = start.slice(0, i);
-                    if (i > common) timer = setTimeout(deleteStep, baseSpeed);
-                    else {
-                        // now type from common -> target
-                        let j = common;
-                        function typeRest() {
-                            j++;
-                            display.textContent = target.slice(0, j);
-                            if (j < target.length) timer = setTimeout(typeRest, baseSpeed);
-                            else timer = null;
-                        }
-                        if (j < target.length) timer = setTimeout(typeRest, baseSpeed);
-                        else {
-                            // target is equal to common prefix
-                            display.textContent = target;
-                            timer = null;
-                        }
-                    }
-                }
-
-                // start deletion (or directly type if common === start.length handled above)
-                if (i > common) deleteStep();
-                else {
-                    // nothing to delete, just type remainder
-                    let j = common;
-                    function typeRestImmediate() {
-                        j++;
-                        display.textContent = target.slice(0, j);
-                        if (j < target.length) timer = setTimeout(typeRestImmediate, baseSpeed);
-                        else timer = null;
-                    }
-                    if (j < target.length) typeRestImmediate();
-                    else display.textContent = target;
-                }
+            function updateText(target: string) {
+                cancelAnimation();
+                const start = displayEl.textContent ?? '';
+                cancelAnimation = typeTo(displayEl, start, target, 60);
             }
 
-            // initial
-            display.textContent = getTarget();
+            displayEl.textContent = getTarget();
+            [mLarge, mSmall].forEach((mq) => mq.addEventListener('change', () => updateText(getTarget())));
 
-            [mLarge, mSmall].forEach((mq) => mq.addEventListener('change', () => animateTo(getTarget())));
-            let rTO = null;
+            let resizeTimeout: number | null = null;
             window.addEventListener('resize', () => {
-                if (rTO) clearTimeout(rTO);
-                rTO = setTimeout(() => animateTo(getTarget()), 120);
+                if (resizeTimeout !== null) clearTimeout(resizeTimeout);
+                resizeTimeout = window.setTimeout(() => updateText(getTarget()), 120);
             });
         });
     }

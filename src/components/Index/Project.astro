@@ -4,10 +4,11 @@ import { Image } from 'astro:assets';
 interface Props {
     image?: any;
     title: string;
+    description: string;
     href?: string;
 }
 
-const { image, title, href = "/placeholder" } = Astro.props;
+const { image, title, description, href = "/placeholder" } = Astro.props;
 
 // Handle both single image and array of images
 const isArray = Array.isArray(image);
@@ -20,20 +21,20 @@ const imageSrc = isMeta ? null : primaryImage;
 ---
 
 <div class="Project flex flex-col gap-3">
-    <a class="Project-card-link no-wiggle" href={href}>
+  <a class="Project-card-link no-wiggle" href={href} data-title={title} data-description={description}>
       {imageMeta ? (
         <Image
           src={imageMeta as any}
           {...(imageMeta?.width && imageMeta?.height ? { width: imageMeta.width, height: imageMeta.height } : {})}
-          class="rounded-lg aspect-square object-cover"
+          class="Project-image rounded-lg aspect-square object-cover"
           alt={title}
         />
       ) : imageSrc ? (
-        <img src={imageSrc} class="rounded-lg aspect-square object-cover" alt={title} />
+        <img src={imageSrc} class="Project-image rounded-lg aspect-square object-cover" alt={title} />
       ) : (
         <div class="rounded-lg aspect-square bg-slate-100"></div>
       )}
 
-      <a class="text-center" href={href}>{title}</a>
+      <div class="text-center pt-3">{title}</div> <!-- hidden [@media(max-width:640px)]:block -->
     </a>
 </div>
