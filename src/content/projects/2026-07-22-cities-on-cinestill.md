@@ -22,3 +22,13 @@ But it wasn't just the camera that got me here. It was Cinestill. As evil as the
 
 ![](../../assets/projects/000227710007.jpg)
 
+
+
+# New York
+
+![](../../assets/projects/CINE-000240260011.jpg)
+
+![](../../assets/projects/000240260025.jpg)
+
+![](../../assets/projects/000240260003.jpg)
+
