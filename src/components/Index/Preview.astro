@@ -46,7 +46,7 @@
             if(target !== currentText){
                 cancelAnimation();
                 const current = labelEl.textContent || '';
-                cancelAnimation = typeTo(labelEl, current, target, 45, 30);
+                cancelAnimation = typeTo(labelEl, current, target, 45, 15);
                 currentText = target;
             }
         }

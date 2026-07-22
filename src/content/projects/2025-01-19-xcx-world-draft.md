@@ -3,7 +3,7 @@ cover:
   - ../../assets/projects/LQ Back with Vinyl.jpg
   - ../../assets/projects/LQ Front.jpg
 title: XCX World
-description: Digital Concept -> Physical Product
+description: Putting the peices together
 pubDate: 2025-01-19
 order: 1
 tags:
