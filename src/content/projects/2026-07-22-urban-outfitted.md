@@ -10,3 +10,5 @@ I love denim bags. I got one at Urban Outfitters last time I went to new york an
 
 [ Insert sketchbook photo here ]
 
+![](../../assets/projects/IMG_1064.jpeg)
+
