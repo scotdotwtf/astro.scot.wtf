@@ -1,7 +1,7 @@
 ---
-cover: ../../assets/projects/Bag.jpg
+cover: ../../assets/projects/Bag 2.jpg
 title: Urban Outfitted
-description: small bag -> big bag
+description: Small bag -> Big bag
 pubDate: 2026-07-22
 ---
 I needed a bigger bag. So I made one. Let me start from the start:
