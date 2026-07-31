@@ -24,6 +24,24 @@ But it wasn't just the camera that got me here. It was Cinestill. As evil as the
 
 
 
+# Seattle
+
+### 2025
+
+![](../../assets/projects/000016790005.jpg)
+
+![](../../assets/projects/000016790007.jpg)
+
+![](../../assets/projects/000227710007.jpg)
+
+### 2026
+
+![](../../assets/projects/Scan13719.jpg)
+
+![](../../assets/projects/Scan13736.jpg)
+
+![](../../assets/projects/Scan13747.jpg)
+
 # New York
 
 ![](../../assets/projects/CINE-000240260011.jpg)
