@@ -1,5 +1,5 @@
 ---
-cover: ../../assets/projects/Bag 2.jpg
+cover: ../../assets/projects/Bag 3.jpg
 title: Urban Outfitted
 description: Small bag -> Big bag
 pubDate: 2026-07-22
