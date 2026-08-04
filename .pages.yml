@@ -13,7 +13,7 @@ content:
     type: collection
     path: src/content/projects
     view:
-      fields: [ title, description, date ]
+      fields: [ title, description, pubDate ]
     fields:
       - { name: cover, label: Cover, type: image, options: { media: Projects } }
       - { name: title, label: Title, type: string, required: true }
