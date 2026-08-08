@@ -1,5 +1,5 @@
 ---
-cover: ../../assets/projects/APC_1300.jpg
+cover: ../../assets/projects/APC_1297.jpg
 title: A moment in time... (with Kevin O'Callaghan)
 description: One giant iPod, please
 pubDate: 2026-08-04
