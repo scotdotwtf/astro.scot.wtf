@@ -1,7 +1,7 @@
 ---
 cover: ../../assets/projects/000227710008.jpg
 title: Cities on Cinestill
-description: Capturing cities in a different light - litterally
+description: Capturing cities in a different light, literally
 pubDate: 2024-05-01
 ---
 I've always had a thing for the night. I don't know if it's because I was born a 6 PM, or just because my Mom got me to like it, but there's always been something pulling me towards it. It's such a mysterious yet enlightening time. And in recent times, I've been enthrolled by the glow neon and flourescent lights, ambiently providing artificial sunlight to the city.
