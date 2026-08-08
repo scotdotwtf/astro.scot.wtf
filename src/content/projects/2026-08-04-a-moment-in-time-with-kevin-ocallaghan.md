@@ -1,6 +1,6 @@
 ---
 cover: ../../assets/projects/APC_1297.jpg
-title: A moment in time... (with Kevin O'Callaghan)
+title: A moment in time...
 description: One giant iPod, please
 pubDate: 2026-08-04
 ---
@@ -8,7 +8,7 @@ This summer, that being the summer of 2026 of course, I decided to take a pre co
 
 So here's how it goes:
 
-
+On Kevin O'Callaghan:
 
 ![](../../assets/projects/APC_1291.jpg)
 
