@@ -24,6 +24,20 @@ const sortedProjects = projects.sort((a, b) => {
 <Layout>
     <Preview/>
 
+    <div class="w-full overflow-scroll text-nowrap p-3 pt-2! flex gap-1">
+        <a class="px-2! shrink-0 no-wiggle bubble rounded-full bg-purple-100 text-[#e15aff]" href="#">projects</a>
+        <a class="px-2! shrink-0 no-wiggle bubble rounded-full bg-red-100 text-red-500" href="#">photography</a>
+        <a class="px-2! shrink-0 no-wiggle bubble rounded-full bg-blue-100 text-(--accent)" href="#">other</a>
+
+        <div class="flex-auto"/>
+
+        <div class="px-2! shrink-0 no-wiggle bubble bg-gray-100 rounded-full">
+            <a href="#">sort ↑ </a>
+        </div>
+    </div>
+
+    
+
     <div class="m-3 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 animate-[grid-template-columns]">
         <!--
         <ul>
